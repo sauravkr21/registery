@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Update Student data</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+  <body>
+    <form action="/updateSearch" method="post" id="addbox">
+        <h4>Search</h4><hr>
+        
+        <div class="mb-3">
+            <label for="givenRoll" class="form-label">Enter Roll number</label>
+            <input type="number" class="form-control" name="givenRoll" id="givenRoll">
+        </div>
+        <p style="text-align: center;">OR</p>
+        <div class="mb-3">
+          <label for="givenName" class="form-label">Enter Name</label>
+          <input type="text" class="form-control" name="givenName" id="givenName">
+      </div>
+          <button type="button" class="btn btn-primary" ><a style="color: white; text-decoration:none" href="/index.js">&larr;Back</a></button>
+          <input type="submit" class="btn btn-primary" value="Search">
+        </form> 
+        <br>
+        <div class="container">
+            <div class="row">
+            <h5><%= message %></h5>
+          
+            <% data.forEach(element => { %>
+                
+                    <div class="col-sm-4">
+                      <div class="card">
+                        <div class="card-body">
+                            <form  class="grid" action="/updateData" method="post">
+                         Roll number: <input type="number" readonly  name="givenRoll" id="" value=<%= element.Roll %>>
+                        <div>Name:</div><input type="text" name="givenName" value='<%= element.Name %>' >
+                        Programme: <input type="text" name="givenProgramme" id="" value= '<%= element.Programme %>'>
+                       Branch: <input type="test" name="givenBranch" id="" value= '<%= element.Branch %>'>
+                       UserId: <input type="text" name="givenUser_ID" id="" value= '<%= element.User_ID %>'>
+                       Hall: <input type="text" name="givenHall" id="" value= '<%= element.Hall%>'>
+                       Room No.: <input type="text" name="givenRoom" id="" value= '<%= element.Room %>'>
+                       Gender: <input type="text" name="givenGender" id="" value= '<%= element.Gender %>'>
+                       Blood Group: <input type="text" name="givenBlood_Group" id="" value= '<%= element.Blood_Group %>'>
+                       Location: <input type="text" name="givenLocation" id="" value= '<%= element.Location %>'>
+                          <input type="submit"  class="btn btn-primary"  value="Update">
+                        </form>
+                        </div>
+    
+                      </div>
+                      <br>
+                    </div>
+           
+           <%  });  %>  
+        </div>
+        </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  </body>
+</html>
